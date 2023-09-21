@@ -38,7 +38,7 @@ jobs:
           curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
           chmod 700 get_helm.sh
           ./get_helm.sh
-          helm repo add --username ${GIT_TOKEN} --password ${GIT_TOKEN} my-helm https://github.com/hotshotsreeram/gcp-practice/gh-pages/
+          helm repo add --username ${GIT_TOKEN} --password ${GIT_TOKEN} my-helm https://raw.githubusercontent.com/hotshotsreeram/gcp-practice/gh-pages/
           helm repo update
 
       - name: Deploy Helm Chart
