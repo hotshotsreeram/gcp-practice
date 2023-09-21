@@ -9,7 +9,6 @@ on:
     - 'gke-terraform/**'
     - '.github/wokflows/terraform-gke.yaml'
 
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
