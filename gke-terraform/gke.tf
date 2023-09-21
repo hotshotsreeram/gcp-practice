@@ -8,4 +8,3 @@ resource "google_container_cluster" "my_cluster" {
   }
 }
 
-
