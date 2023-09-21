@@ -18,11 +18,11 @@ type: application
 version: 0.1.0
 dependencies:
   - name: nginx
-    version: latest
+    version: 1.0.0
     repository: "file://./charts/nginx"
     condition: nginx.enabled
   - name: mysql
-    version: latest
+    version: 1.0.0
     repository: "file://./charts/mysql"
     condition: mysql.enabled
 
