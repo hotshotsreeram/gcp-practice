@@ -1,0 +1,50 @@
+name: Deploy Helm Chart to GKE
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+    - main
+    paths:
+    - 'my-parent-chart/values.yaml'
+    - '.github/workflows/sample-helm-deployment.yaml'
+
+env:
+  GKE_CLUSTER: my-cluster
+  GKE_ZONE:  northamerica-northeast2	
+  DEPLOYMENT_NAME: parent-chart-test
+  GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
+
+      - uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: ${{ env.GKE_CLUSTER }}
+          location: ${{ env.GKE_ZONE }}
+
+      - name: Install Helm
+        run: |
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+          helm repo add --username ${GIT_TOKEN} --password ${GIT_TOKEN} my-helm https://github.com/hotshotsreeram/gcp-practice/gh-pages/
+          helm repo update
+
+      - name: Deploy Helm Chart
+        run: |
+          helm upgrade --install $DEPLOYMENT_NAME my-helm/my-parent-chart -f ./my-parent-chart/values.yaml --namespace sample --create-namespace
+
+      - name: Get services
+        run: |-
+        kubectl get all -n sample -o wide
