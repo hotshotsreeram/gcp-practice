@@ -1,0 +1,35 @@
+name: Deploy GKE Cluster with Terraform
+
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - '/gke-terraform/**'
+      - '/.github/wokflows/terraform-gke.yaml'
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
+
+      - name: Initialize Terraform
+        run: |
+          cd gke-teraform
+          pwd
+          terraform init
+
+      - name: Deploy GKE Cluster
+        run: terraform apply -var-file="values.tfavrs" -auto-approve
