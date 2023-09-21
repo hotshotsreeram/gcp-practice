@@ -25,12 +25,10 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
 
-      - name: Initialize Terraform
+      - name: Initialize and Deploy Terraform
         run: |
           pwd
           ls -al
           cd gke-terraform
           terraform init
-
-      - name: Deploy GKE Cluster
-        run: terraform apply -var-file="values.tfavrs" -auto-approve
+          terraform apply -var-file="values.tfavrs" -auto-approve
