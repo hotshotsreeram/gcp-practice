@@ -31,4 +31,4 @@ jobs:
           ls -al
           cd gke-terraform
           terraform init
-          terraform apply -var-file="values.tfavrs" -auto-approve
+          terraform apply -var-file="values.tfavars" -auto-approve
