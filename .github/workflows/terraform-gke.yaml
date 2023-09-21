@@ -29,7 +29,6 @@ jobs:
         run: |
           pwd
           terraform init
-          
 
       - name: Deploy GKE Cluster
         run: terraform apply -var-file="values.tfavrs" -auto-approve
