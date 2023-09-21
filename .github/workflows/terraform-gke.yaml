@@ -29,6 +29,7 @@ jobs:
         run: |
           pwd
           ls -al
+          cd gke-terraform
           terraform init
 
       - name: Deploy GKE Cluster
