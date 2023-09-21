@@ -28,6 +28,7 @@ jobs:
       - name: Initialize Terraform
         run: |
           pwd
+          ls -al
           terraform init
 
       - name: Deploy GKE Cluster
