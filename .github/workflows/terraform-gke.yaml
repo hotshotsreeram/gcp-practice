@@ -27,7 +27,6 @@ jobs:
 
       - name: Initialize Terraform
         run: |
-          cd gke-teraform
           pwd
           terraform init
 
