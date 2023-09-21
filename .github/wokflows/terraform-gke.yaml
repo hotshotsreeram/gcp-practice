@@ -3,11 +3,11 @@ name: Deploy GKE Cluster with Terraform
 on:
   workflow_dispatch: {}
   push:
-    paths:
-      - '/gke-terraform/**'
-      - '/.github/wokflows/terraform-gke.yaml'
     branches:
       - main
+    paths:
+      - 'gcp-practice/gke-terraform/**'
+      - 'gcp-practice/.github/wokflows/terraform-gke.yaml'
 
 
 jobs:
