@@ -15,7 +15,7 @@ jobs:
       - name: Configure Git user
         run: |
           git config user.name "hotshotsreeram"
-          git config user.email "hotshotsreeam@gmail.co,"
+          git config user.email "hotshotsreeam@gmail.com,"
       - name: Run chart-releaser job
         uses: helm/chart-releaser-action@v1.4.0
         env:
