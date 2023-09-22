@@ -40,6 +40,7 @@ jobs:
           ./get_helm.sh
           helm repo add --username ${GIT_TOKEN} --password ${GIT_TOKEN} my-helm https://raw.githubusercontent.com/hotshotsreeram/gcp-practice/gh-pages/
           helm repo update
+          
 
       - name: Deploy Helm Chart
         run: |
