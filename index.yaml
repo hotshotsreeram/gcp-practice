@@ -3,6 +3,25 @@ entries:
   my-parent-chart:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-09-22T20:09:29.089458441Z"
+    dependencies:
+    - condition: nginx.enabled
+      name: nginx
+      repository: file://../nginx/
+      version: 0.1.0
+    - condition: mysql.enabled
+      name: mysql
+      repository: file://../mysql/
+      version: 0.1.0
+    description: A Helm chart for Nginx and mysql
+    digest: 5aef1d57a151aa4bbda3ce0b0a585d9d1085b0d42ee2fda7c03847e8d44d56f2
+    name: my-parent-chart
+    type: application
+    urls:
+    - https://github.com/hotshotsreeram/gcp-practice/releases/download/my-parent-chart-0.1.7/my-parent-chart-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-09-22T17:18:10.679418948Z"
     dependencies:
     - condition: nginx.enabled
@@ -20,4 +39,4 @@ entries:
     urls:
     - https://github.com/hotshotsreeram/gcp-practice/releases/download/my-parent-chart-0.1.6/my-parent-chart-0.1.6.tgz
     version: 0.1.6
-generated: "2023-09-22T17:18:10.679423848Z"
+generated: "2023-09-22T20:09:29.089464141Z"
