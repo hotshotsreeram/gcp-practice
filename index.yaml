@@ -3,7 +3,7 @@ entries:
   my-parent-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-22T20:45:37.727742406Z"
+    created: "2023-09-22T20:45:40.991713985Z"
     dependencies:
     - condition: nginx.enabled
       name: nginx
@@ -14,11 +14,11 @@ entries:
       repository: file://../mysql/
       version: 0.1.2
     description: A Helm chart for Nginx and mysql
-    digest: e1fb5c65a798f3ba2a89780ad98d09bd41d13cc02547b94240e522a23dc01564
+    digest: 3d714773a936415a05de98b00ce58f5ef1893d2b38f57ced115df6033a139b6d
     name: my-parent-chart
     type: application
     urls:
-    - https://github.com/hotshotsreeram/gcp-practice/releases/download/my-parent-chart-0.1.10/my-parent-chart-0.1.10.tgz
+    - my-parent-chart-0.1.10.tgz
     version: 0.1.10
   - apiVersion: v2
     appVersion: 1.16.0
@@ -79,12 +79,12 @@ entries:
     version: 0.1.6
   mysql:
   - apiVersion: v2
-    created: "2023-09-22T20:45:37.970512518Z"
+    created: "2023-09-22T20:45:40.991966498Z"
     description: A Helm subchart for mysql
-    digest: 43651d82e3a96f2e4a0a3e195964d1fc51ddcd08d9e107b0567fb623253e1de1
+    digest: 4ed3784f0055bf29f7e36692253184622eda28250e0c5a4ce4d7963aaa8b995c
     name: mysql
     urls:
-    - https://github.com/hotshotsreeram/gcp-practice/releases/download/mysql-0.1.2/mysql-0.1.2.tgz
+    - mysql-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
     created: "2023-09-22T20:40:33.918293908Z"
@@ -94,4 +94,13 @@ entries:
     urls:
     - https://github.com/hotshotsreeram/gcp-practice/releases/download/mysql-0.1.1/mysql-0.1.1.tgz
     version: 0.1.1
-generated: "2023-09-22T20:45:37.97054232Z"
+  nginx:
+  - apiVersion: v2
+    created: "2023-09-22T20:45:40.992191509Z"
+    description: A Helm subchart for Nginx
+    digest: ae9eaceebdb6fbdc7b0aaad391a2765810731524e96fbbfa8ba0d8fff10e83af
+    name: nginx
+    urls:
+    - nginx-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-09-22T20:45:40.990522123Z"
