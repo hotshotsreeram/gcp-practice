@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ .Release.Name }}-mysql-deployment
 spec:
-  replicas: {{ .Values.mysql.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: mysql
@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: mysql-container
-          image: {{ .Values.mysql.image.repository }}
-          tag: {{ .Values.mysql.image.tag }}
+          image: {{ .Values.image.repository }}
+          tag: {{ .Values.image.tag }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: myrootpassword  # Replace with your MySQL root password
