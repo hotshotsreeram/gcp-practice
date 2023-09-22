@@ -82,7 +82,7 @@
 # affinity: {}
 
 nginx:
-  enabled: false
+  enabled: true
   # replicaCount: 2
   image:
     repository: nginx
