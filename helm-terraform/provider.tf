@@ -65,7 +65,6 @@ provider "helm" {
     config_path            =  "/var/lib/jenkins/workspace/helm-terraform/helm-terraform/kubeconfig"
   }
   debug = true
-  alias = "hm"
 }
 
 provider "kubernetes" {
