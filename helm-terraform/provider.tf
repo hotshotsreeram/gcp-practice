@@ -62,7 +62,7 @@ output "helm_token" {
 
 provider "helm" {
   kubernetes {
-    config_path            =  "/var/lib/jenkins/workspace/helm-terraform/helm-terraform/kubeconfig"
+    config_path            =  local_file.kubeconfig.filename
   }
   debug = true
 }
