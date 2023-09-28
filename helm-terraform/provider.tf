@@ -11,6 +11,19 @@ module "gke_auth" {
   location             = var.location
 }
 
+output "helm_host" {
+  value = module.gke_auth.host
+}
+
+output "helm_cluster_ca_certificate" {
+  value = module.gke_auth.cluster_ca_certificate
+}
+
+output "helm_token" {
+  value = module.gke_auth.token
+}
+
+
 provider "helm" {
   kubernetes {
     host                   =  module.gke_auth.host
