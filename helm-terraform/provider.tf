@@ -1,3 +1,36 @@
+terraform {
+  required_version = ">= 0.13.1"
+
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = ">= 4.0.0"
+    }
+    null = {
+      source  = "hashicorp/null"
+      version = ">= 3.0"
+    }
+    tls = {
+      source  = "hashicorp/tls"
+      version = ">= 2.2"
+    }
+    # kubectl = {
+    #   source  = "gavinbunney/kubectl"
+    #   version = ">= 1.7.0"
+    # }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "2.6.0"
+    }
+    
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "2.12.1"
+    }
+  }
+}
+
+
 provider "google" {
   project     = "robotic-circle-359714"
   region      = "northamerica-northeast2"  # Change to your desired region
