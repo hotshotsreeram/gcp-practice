@@ -81,4 +81,5 @@ resource "local_file" "kubeconfig" {
 
 output "kubeconfig" {
   value = module.gke_auth.kubeconfig_raw
+  sensitive = true
 }
