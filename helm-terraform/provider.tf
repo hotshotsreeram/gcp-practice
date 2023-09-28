@@ -62,7 +62,7 @@ output "helm_token" {
 
 provider "helm" {
   kubernetes {
-    config_path            =  local_file.kubeconfig.filename
+    config_path            =  "kubeconfig"
   }
   debug = true
   alias = "hm"
