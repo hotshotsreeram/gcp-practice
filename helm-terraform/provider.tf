@@ -62,7 +62,9 @@ output "helm_token" {
 
 provider "helm" {
   kubernetes {
-    config_path            =  local_file.kubeconfig.filename
+    host                   =  module.gke_auth.host
+    cluster_ca_certificate =  module.gke_auth.cluster_ca_certificate
+    token                  =  module.gke_auth.token
   }
   debug = true
 }
@@ -76,9 +78,4 @@ provider "kubernetes" {
 resource "local_file" "kubeconfig" {
   content  = module.gke_auth.kubeconfig_raw
   filename = "kubeconfig"
-}
-
-output "kubeconfig" {
-  value = module.gke_auth.kubeconfig_raw
-  sensitive = true
 }
