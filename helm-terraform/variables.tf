@@ -7,7 +7,7 @@ variable "location" {
 }
 
 variable "helm_chart_version" {
-    type = number
+    type = string
 }
 
 variable "release_name" {
