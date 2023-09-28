@@ -13,14 +13,17 @@ module "gke_auth" {
 
 output "helm_host" {
   value = module.gke_auth.host
+  sensitive = true
 }
 
 output "helm_cluster_ca_certificate" {
   value = module.gke_auth.cluster_ca_certificate
+  sensitive = true
 }
 
 output "helm_token" {
   value = module.gke_auth.token
+  sensitive = true
 }
 
 
