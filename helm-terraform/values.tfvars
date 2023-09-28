@@ -1,0 +1,6 @@
+name = "my-cluster"
+location = "northamerica-northeast2"
+release_name = "test-chart"
+project_id = "robotic-circle-359714"
+chart = "my-app"
+helm_chart_version = "1.10"
