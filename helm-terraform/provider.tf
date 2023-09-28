@@ -11,9 +11,14 @@ module "gke_auth" {
   location             = var.location
 }
 
-resource "local_file" "kubeconfig" {
-  content  = module.gke_auth.kubeconfig_raw
-  filename = "${path.module}/kubeconfig"
+provider "helm" {
+  kubernetes {
+    host                   =  module.gke_auth.host
+    cluster_ca_certificate =  module.gke_auth.cluster_ca_certificate
+    token                  = module.gke_auth.token
+  }
+  debug = true
+  alias = "hm"
 }
 
 provider "kubernetes" {
