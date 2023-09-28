@@ -3,7 +3,7 @@ entries:
   my-parent-chart:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-09-28T18:41:58.037584559Z"
+    created: "2023-09-28T18:44:33.291327233Z"
     dependencies:
     - condition: nginx.enabled
       name: nginx
@@ -14,7 +14,7 @@ entries:
       repository: file://../mysql/
       version: 0.1.2
     description: A Helm chart for Nginx and mysql
-    digest: 6dbef6a4bf73056a5a21ae07d19738cce14afa0fd120ee9a88a8986d21db44b0
+    digest: f451acca8d72f40f487252e3bbfb45ef9325c2fcd29434197f067c710e012719
     name: my-parent-chart
     type: application
     urls:
@@ -79,9 +79,9 @@ entries:
     version: 0.1.6
   mysql:
   - apiVersion: v2
-    created: "2023-09-28T18:41:58.037886862Z"
+    created: "2023-09-28T18:44:33.291562853Z"
     description: A Helm subchart for mysql
-    digest: 02bab1901e9400a56ece21366111be6433cbe9e8c9ae5d9530fee8d1b9adea84
+    digest: a2af05b67db405add52035be9e6b6d0024a082adc35fb1c4cb8afffbdd742866
     name: mysql
     urls:
     - mysql-0.1.2.tgz
@@ -96,11 +96,11 @@ entries:
     version: 0.1.1
   nginx:
   - apiVersion: v2
-    created: "2023-09-28T18:41:58.038107663Z"
+    created: "2023-09-28T18:44:33.291824474Z"
     description: A Helm subchart for Nginx
-    digest: 70e51f14986b894f9504103e3aff80b54cc5932a401be8c9a83777dd4f868aa9
+    digest: 6c72cce946fc192cf2fe27f71e24dbf048425f0df98eeac047e6894ead145593
     name: nginx
     urls:
     - nginx-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-28T18:41:58.036225548Z"
+generated: "2023-09-28T18:44:33.289805008Z"
