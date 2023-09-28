@@ -83,7 +83,7 @@
 
 nginx:
   enabled: true
-  replicaCount: 2
+  # replicaCount: 2
   image:
     repository: nginx
     tag: latest
