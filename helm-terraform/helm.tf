@@ -11,5 +11,5 @@ resource "helm_release" "my_app" {
   chart      = var.chart
   version    = var.helm_chart_version
 
-  values     = file("my-parent-chart/values.yaml")
+  values     = file("/var/lib/jenkins/workspace/helm-terraform/my-parent-chart/values.yaml")
 }
