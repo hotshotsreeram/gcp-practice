@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: practice-argocd-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/hotshotsreeram/gcp-practice.git
+    targetRevision: HEAD
+    path: charts/my-parent-chart
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: practice
+
+  syncPolicy: 
+    syncOptions: 
+    - CreateNamespace=true
+
+    automated: 
+      selHeal: true
+      prune: true
