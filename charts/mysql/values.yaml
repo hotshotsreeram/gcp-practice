@@ -1,6 +1,6 @@
 replicaCount: 1 
 image:
-  repository: 
-  tag: 
+  repository: mysql
+  tag: latest
 service:
-  port: 
+  port: 3306
