@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: mysql-container
-          image: {{ .Values.image.repository }}
-          tag: {{ .Values.image.tag }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: myrootpassword  # Replace with your MySQL root password

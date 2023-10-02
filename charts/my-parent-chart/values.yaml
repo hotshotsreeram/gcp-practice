@@ -93,7 +93,7 @@ nginx:
     className: "nginx"
 
 mysql:
-  enabled: false
+  enabled: true
   replicaCount: 1
   image:
     repository: mysql
