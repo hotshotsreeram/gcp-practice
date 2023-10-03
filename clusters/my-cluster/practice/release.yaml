@@ -1,0 +1,11 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: flux-release # Replace with your desired Helm release name
+  namespace: practice
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: ./charts/my-parent-chart # Path to your local Helm chart directory
+      interval: 1m
