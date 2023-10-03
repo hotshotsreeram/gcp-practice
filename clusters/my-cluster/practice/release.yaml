@@ -4,7 +4,7 @@ metadata:
   name: flux-release # Replace with your desired Helm release name
   namespace: practice
 spec:
-  interval: 5m
+  interval: 2m
   chart:
     spec:
       chart: ./charts/my-parent-chart # Path to your local Helm chart directory
