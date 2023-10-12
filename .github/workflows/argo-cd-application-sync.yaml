@@ -49,8 +49,10 @@ jobs:
           POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
           echo "Pod Status: $POD_STATUS"
           if [[ "$POD_STATUS" != *"Running"* ]]; then
+            echo "::set-output name=deployment_status::failure"
             echo "Pod deployment failed: Pod is not running."
-            exit 1
+          else
+            echo "::set-output name=deployment_status::success"
           fi
 
       - name: Set deployment status output
@@ -58,6 +60,6 @@ jobs:
           echo "Deployment Status: ${{ steps.check-pods.outputs.deployment_status }}"
         
       - name: Fail workflow if deployment failed
-        if: steps.check-pods.outputs.deployment_status == ''
+        if: steps.check-pods.outputs.deployment_status != 'success'
         run: exit 1
 
