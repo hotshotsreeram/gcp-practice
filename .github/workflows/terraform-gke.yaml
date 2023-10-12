@@ -1,34 +1,34 @@
-# name: Deploy GKE Cluster with Terraform
+name: Deploy GKE Cluster with Terraform
 
-# on:
-#   workflow_dispatch: {}
-#   push:
-#     branches:
-#     - main
-#     paths:
-#     - 'gke-terraform/**'
-#     - '.github/workflows/terraform-gke.yaml'
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+    - main
+    paths:
+    - 'gke-terraform/**'
+    - '.github/workflows/terraform-gke.yaml'
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-#       - name: Set up Terraform
-#         uses: hashicorp/setup-terraform@v1
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
 
-#       - name: Authenticate to Google Cloud
-#         uses: google-github-actions/auth@v0
-#         with:
-#           credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
 
-#       - name: Initialize and Deploy Terraform
-#         run: |
-#           pwd
-#           ls -al
-#           cd gke-terraform
-#           terraform init
-#           terraform destroy -var-file="values.tfvars" -auto-approve
+      - name: Initialize and Deploy Terraform
+        run: |
+          pwd
+          ls -al
+          cd gke-terraform
+          terraform init
+          terraform destroy -var-file="values.tfvars" -auto-approve
