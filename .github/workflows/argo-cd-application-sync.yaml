@@ -46,21 +46,22 @@ jobs:
       - name: Check pod status
         id: check-pods
         run: |
-          TIMEOUT=60
-          POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
+          T POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
           echo "Pod Status: $POD_STATUS"
           if [[ "$POD_STATUS" != *"Running"* ]]; then
-            echo "deployment_status=failure" >> $GITHUB_ENV
+            echo "Deployment Status: failure"
             echo "Pod deployment failed: Pod is not running."
+            echo "::set-env name=DEPLOYMENT_STATUS::failure"
           else
-            echo "deployment_status=success" >> $GITHUB_ENV
+            echo "Deployment Status: success"
+            echo "::set-env name=DEPLOYMENT_STATUS::success"
           fi
 
       - name: Set deployment status output
         run: |
-          echo "Deployment Status: ${{ env.deployment_status }}"
+          echo "Deployment Status: ${{ env.DEPLOYMENT_STATUS }}"
         
       - name: Fail workflow if deployment failed
-        if: env.deployment_status != 'success'
+        if: env.DEPLOYMENT_STATUS != 'success'
         run: exit 1
 
