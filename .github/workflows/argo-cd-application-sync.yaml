@@ -23,7 +23,7 @@ jobs:
           sudo mv argocd-linux-amd64 /usr/local/bin/argocd
 
       - name: Log in to Argo CD
-        run: argocd login --insecure --username admin --password ${{ secrets.ARGOCD_PASSWORD }} localhost
+        run: argocd login --insecure --username admin --password ${{ secrets.ARGOCD_PASSWORD }} localhost:8080
 
       - name: Sync Argo CD Application
         run: argocd app sync  --sync-option Prune=false
