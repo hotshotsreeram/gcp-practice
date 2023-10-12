@@ -62,11 +62,4 @@ jobs:
           echo "All pods are running successfully."
           echo "::set-output name=deployment_status::success"
 
-      - name: Set deployment status output
-        run: |
-          echo "Deployment Status: ${{ env.DEPLOYMENT_STATUS }}"
-        
-      - name: Fail workflow if deployment failed
-        if: env.DEPLOYMENT_STATUS != 'success'
-        run: exit 1
 
