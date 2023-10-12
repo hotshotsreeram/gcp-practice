@@ -46,6 +46,7 @@ jobs:
       - name: Check pod status
         id: check-pods
         run: |
+          TIMEOUT=60
           POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
           echo "Pod Status: $POD_STATUS"
           if [[ "$POD_STATUS" != *"Running"* ]]; then
