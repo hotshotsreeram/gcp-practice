@@ -46,6 +46,7 @@ jobs:
       - name: Check pod status
         run: |
           POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
+          echo "Pod Status: $POD_STATUS"
           if [[ "$POD_STATUS" != *"Running"* ]]; then
             echo "Pod deployment failed: Pod is not running."
             exit 1
