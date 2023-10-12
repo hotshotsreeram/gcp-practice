@@ -29,3 +29,12 @@ jobs:
       - name: Sync Argo CD Application
         run: argocd app sync practice-argocd-application
 
+      - name: Check pod status
+        run: |
+        POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{.items[0].status.phase}')
+        if [ "$POD_STATUS" != "Running" ]; then
+          echo "Pod deployment failed: Pod is not running."
+          exit 1
+        fi
+      if: failure()
+
