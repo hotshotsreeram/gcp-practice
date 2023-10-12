@@ -46,16 +46,21 @@ jobs:
       - name: Check pod status
         id: check-pods
         run: |
-          T POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
-          echo "Pod Status: $POD_STATUS"
-          if [[ "$POD_STATUS" != *"Running"* ]]; then
-            echo "Deployment Status: failure"
-            echo "Pod deployment failed: Pod is not running."
-            echo "::set-env name=DEPLOYMENT_STATUS::failure"
-          else
-            echo "Deployment Status: success"
-            echo "::set-env name=DEPLOYMENT_STATUS::success"
-          fi
+          POD_STATUSES=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
+          echo "Pod Status: $POD_STATUSES"
+          SUCCESS=false
+
+          while read -r STATUS; do
+            echo "Checking pod status: $STATUS"
+            if [[ "$STATUS" != "Running" ]]; then
+              echo "Pod deployment failed: Pod is not running."
+              echo "::set-output name=deployment_status::failure"
+              exit 1
+            fi
+          done <<< "$POD_STATUSES"
+
+          echo "All pods are running successfully."
+          echo "::set-output name=deployment_status::success"
 
       - name: Set deployment status output
         run: |
