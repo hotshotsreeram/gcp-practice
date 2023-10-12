@@ -41,4 +41,4 @@ jobs:
 
       - name: Get services
         run: |-
-          kubectl get all -n sample -o wide
+          kubectl get all -n practice -o wide
