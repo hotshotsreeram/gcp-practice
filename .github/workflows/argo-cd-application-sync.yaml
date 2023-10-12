@@ -57,6 +57,6 @@ jobs:
           echo "Deployment Status: $( steps.check-pods.outputs.deployment_status)"
         
       - name: Fail workflow if deployment failed
-        if: steps.check-pods.outputs.deployment_status != 'running'
+        if: steps.check-pods.outputs.deployment_status != 'Running'
         run: exit 1
 
