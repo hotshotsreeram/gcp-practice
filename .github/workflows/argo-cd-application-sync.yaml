@@ -27,5 +27,5 @@ jobs:
         run: argocd login --insecure --username admin --password ${{ secrets.ARGOCD_PASSWORD }} 34.130.228.239
 
       - name: Sync Argo CD Application
-        run: argocd app sync practice-argocd-application --sync-option Prune=false
+        run: argocd app sync practice-argocd-application
 
