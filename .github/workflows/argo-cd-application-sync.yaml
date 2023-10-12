@@ -53,7 +53,8 @@ jobs:
           fi
 
       - name: Set deployment status output
-        run: echo "Deployment Status: ${{ steps.check-pods.outputs.deployment_status }}"
+        run: |
+          echo "Deployment Status: ${{ steps.check-pods.outputs.deployment_status }}"
         
       - name: Fail workflow if deployment failed
         if: steps.check-pods.outputs.deployment_status != 'running'
