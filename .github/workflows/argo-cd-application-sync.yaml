@@ -44,6 +44,7 @@ jobs:
           location: ${{ env.GKE_ZONE }} 
 
       - name: Check pod status
+        id: check-pods
         run: |
           POD_STATUS=$(kubectl get pods -n practice -o jsonpath='{range .items[*]}{.status.phase}{"\n"}{end}')
           echo "Pod Status: $POD_STATUS"
@@ -54,7 +55,7 @@ jobs:
 
       - name: Set deployment status output
         run: |
-          echo "Deployment Status: $( steps.check-pods.outputs.deployment_status)"
+          echo "Deployment Status: ${{ steps.check-pods.outputs.deployment_status }}"
         
       - name: Fail workflow if deployment failed
         if: steps.check-pods.outputs.deployment_status != 'Running'
