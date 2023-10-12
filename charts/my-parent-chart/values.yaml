@@ -85,7 +85,7 @@ nginx:
   enabled: true
   replicaCount: 1
   image:
-    repository: mginx
+    repository: nginx
     tag: latest
   service:
     port: 80
