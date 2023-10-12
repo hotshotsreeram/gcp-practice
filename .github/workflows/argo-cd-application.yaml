@@ -1,4 +1,4 @@
-name: Allication deployment Argo CD
+name: Application deployment Argo CD
 
 on:
   workflow_dispatch: {}
