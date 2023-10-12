@@ -41,9 +41,7 @@ jobs:
       - uses: google-github-actions/get-gke-credentials@v1
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
-          location: ${{ env.GKE_ZONE }}
-        run: |
-          kubectl get pods -n practice
+          location: ${{ env.GKE_ZONE }} 
 
       - name: Check pod status
         run: |
@@ -53,5 +51,4 @@ jobs:
             echo "Pod deployment failed: Pod is not running."
             exit 1
           fi
-        if: failure()
 
