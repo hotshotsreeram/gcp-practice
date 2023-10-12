@@ -9,6 +9,10 @@ on:
     - 'charts/my-parent-chart/**'
     - '.github/workflows/argo-cd-application-sync.yaml'
 
+env:
+  GKE_CLUSTER: my-cluster
+  GKE_ZONE:  northamerica-northeast2	
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -28,6 +32,16 @@ jobs:
 
       - name: Sync Argo CD Application
         run: argocd app sync practice-argocd-application
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
+
+      - uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: ${{ env.GKE_CLUSTER }}
+          location: ${{ env.GKE_ZONE }}
 
       - name: Check pod status
         run: |
