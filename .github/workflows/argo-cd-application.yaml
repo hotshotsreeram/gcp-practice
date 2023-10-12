@@ -37,7 +37,7 @@ jobs:
         run: |
           pwd
           ls -al
-          kubectl apply -f ./my-parent-chat/application.yaml
+          kubectl apply -f ./my-parent-chart/application.yaml
 
       - name: Get services
         run: |-
