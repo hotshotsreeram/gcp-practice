@@ -1,0 +1,43 @@
+name: Allication deployment Argo CD
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+    - main
+    paths:
+    - 'my-parent-chart/application.yaml'
+    - '.github/workflows/argo-cd-application.yaml'
+
+env:
+  GKE_CLUSTER: my-cluster
+  GKE_ZONE:  northamerica-northeast2	
+  DEPLOYMENT_NAME: parent-chart-test
+  GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS_JSON }}
+
+      - uses: google-github-actions/get-gke-credentials@v1
+        with:
+          cluster_name: ${{ env.GKE_CLUSTER }}
+          location: ${{ env.GKE_ZONE }}
+
+      - name: kubectl apply
+        run: |
+          pwd
+          kubectl apply -f ./my-parent-chat/application.yaml
+
+      - name: Get services
+        run: |-
+          kubectl get all -n sample -o wide
