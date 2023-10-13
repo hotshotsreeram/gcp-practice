@@ -1,8 +1,12 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
 metadata:
   name: gcp-practice
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://raw.githubusercontent.com/hotshotsreeram/gcp-practice/gh-pages/
+  url: https://github.com/hotshotsreeram/gcp-practice
+  ref:
+    branch: main
+  paths: 
+    - ./charts
