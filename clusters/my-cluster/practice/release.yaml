@@ -7,7 +7,7 @@ spec:
   interval: 2m
   chart:
     spec:
-      chart: my-parent-chart # Path to your local Helm chart directory
+      chart: ./charts/my-parent-chart # Path to your local Helm chart directory
       version: '0.1.10'
       sourceRef:
         kind: GitRepository
