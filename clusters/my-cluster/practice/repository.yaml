@@ -8,8 +8,3 @@ spec:
   url: https://github.com/hotshotsreeram/gcp-practice
   ref:
     branch: main
-  ignore: |
-    # exclude all
-    /*
-    # include charts directory
-    !/charts/
