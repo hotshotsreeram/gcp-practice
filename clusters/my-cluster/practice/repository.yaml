@@ -8,4 +8,8 @@ spec:
   url: https://github.com/hotshotsreeram/gcp-practice
   ref:
     branch: main
-  path: ./clusters/my-cluster/flux-system/
+  ignore: |
+    # exclude all
+    /*
+    # include charts directory
+    !/charts/
