@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: flux-release # Replace with your desired Helm release name
-  namespace: practice
+  namespace: practice1
 spec:
   interval: 2m
   chart:
