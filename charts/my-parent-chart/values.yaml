@@ -83,7 +83,7 @@
 
 nginx:
   enabled: true
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: nginx
     tag: latest
@@ -94,7 +94,7 @@ nginx:
 
 mysql:
   enabled: true
-  replicaCount: 2
+  replicaCount: 1
   image:
     repository: mysql
     tag: latest
