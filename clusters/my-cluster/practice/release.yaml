@@ -8,9 +8,9 @@ spec:
   chart:
     spec:
       chart: ./charts/my-parent-chart # Path to your local Helm chart directory
-      version: '0.1.10'
+      version: '0.1.11'
       sourceRef:
         kind: GitRepository
         name: gcp-practice
         namespace: default
-      interval: 1m
+      interval: 1m  
