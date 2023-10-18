@@ -94,7 +94,7 @@ nginx:
 
 mysql:
   enabled: true
-  replicaCount: 1
+  replicaCount: 2
   image:
     repository: mysql
     tag: latest
